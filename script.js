@@ -61,7 +61,7 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const diplayMovements = function (movements) {
+const displayMovements = function (movements) {
   containerMovements.innerHTML = "";
   
   movements.forEach(function (mov, i) {
@@ -80,4 +80,33 @@ const diplayMovements = function (movements) {
   });
 }
 
-diplayMovements(account1.movements);
+displayMovements(account1.movements);
+
+
+function createUsernames(accs) {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map( name => name[0]).join("");
+  })  
+}
+
+createUsernames(accounts);
+console.log(accounts);
+
+// console.log("---------------For Loop---");
+// for (const account of accounts) {
+//   console.log(account);
+// }
+
+// console.log("---------------forEach---");
+
+// accounts.forEach(acc => {
+//   console.log(acc);
+// })
+
+// console.log("-----------------MAP---");
+// const acc =  accounts.map((accs) => {
+//   console.log(accs);
+// }); 
