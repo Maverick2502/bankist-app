@@ -136,7 +136,7 @@ function updateUi(acc) {
   calcDisplaySummary(acc);
 }
 
-//Event handler
+//Event handlers
 let currentAccount;
 
 btnLogin.addEventListener("click", e => {
@@ -172,4 +172,21 @@ btnTransfer.addEventListener("click", e => {
     //Update UI
     updateUi(currentAccount);
   }
+})
+
+btnClose.addEventListener("click", e => {
+  e.preventDefault();
+  
+  if (inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin) {
+    const index = accounts.findIndex(acc => acc.username === currentAccount.username);
+    console.log(index);
+    //Delete Account
+    accounts.splice(index, 1)
+    //Hide UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = "";
+  labelWelcome.textContent = `${currentAccount.owner.split(" ")[0]} your account has been successfully deleted`;
+
+
 })
