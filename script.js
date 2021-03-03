@@ -172,6 +172,21 @@ btnTransfer.addEventListener("click", e => {
     //Update UI
     updateUi(currentAccount);
   }
+});
+
+btnLoan.addEventListener("click", e => {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    //Add movement
+    currentAccount.movements.push(amount);
+
+    //Update UI
+    updateUi(currentAccount);
+  }
+    inputLoanAmount.value = "";
 })
 
 btnClose.addEventListener("click", e => {
@@ -187,6 +202,4 @@ btnClose.addEventListener("click", e => {
   }
   inputCloseUsername.value = inputClosePin.value = "";
   labelWelcome.textContent = `${currentAccount.owner.split(" ")[0]} your account has been successfully deleted`;
-
-
-})
+});
