@@ -31,6 +31,8 @@ nav {
 }
 
 .welcome {
+  position: relative;
+  left: 130px;
   font-size: 1.9rem;
   font-weight: 500;
 }
@@ -94,7 +96,7 @@ nav {
   gap: 2rem;
 
   /* NOTE This creates the fade in/out anumation */
-  /* opacity: 0; */
+  opacity: 0;
   transition: all 1s;
 }
 
