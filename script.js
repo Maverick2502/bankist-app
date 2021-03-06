@@ -30,11 +30,11 @@ const account2 = {
     '2019-11-01T13:15:33.035Z',
     '2019-11-30T09:48:16.867Z',
     '2019-12-25T06:04:23.907Z',
-    '2020-01-25T14:18:46.235Z',
-    '2020-02-05T16:33:06.386Z',
-    '2020-04-10T14:43:26.374Z',
-    '2020-06-25T18:49:59.371Z',
-    '2020-07-26T12:01:20.894Z',
+    '2020-11-25T14:18:46.235Z',
+    '2020-12-05T16:33:06.386Z',
+    '2021-02-01T14:43:26.374Z',
+    '2021-02-05T18:49:59.371Z',
+    '2021-03-05T12:01:20.894Z',
   ],
   currency: 'USD',
   locale: 'en-US',
@@ -167,14 +167,17 @@ function startLogOutTimer() {
   function tick() {
     const min = String(Math.trunc(time / 60)).padStart(2, 0);
     const sec = String(time % 60).padStart(2, 0);
+
   //In each call, print the remaining time to UI
   labelTimer.textContent = `${min}:${sec}`;
+
   //When 0 seconds, stop timer and log out user
   if (time === 0) {
     clearInterval(timer);
     labelWelcome.textContent = `Log In to get started`;
     containerApp.style.opacity = 0;
   }
+  
   //Decrease 1 sec
   time--;
 };
@@ -183,7 +186,6 @@ function startLogOutTimer() {
   //Call the timer every second
   // tick();
   // const timer = setInterval((tick), 1000)
-
   // return timer;
   return setInterval(tick, 1000)
 }
